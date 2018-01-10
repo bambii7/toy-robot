@@ -16,7 +16,7 @@ module.exports = {
     // Where you want the output to go
     output: {
         path: path.join(__dirname, '/dist/'),
-        filename: '[name]-[hash].min.js',
+        filename: '[name].min.js',
         publicPath: '/'
     },
     plugins: [
@@ -38,12 +38,12 @@ module.exports = {
         // file as they dont have to wait for the JS to load.
         new ExtractTextPlugin('[name]-[hash].min.css'),
         // handles uglifying js
-        new webpack.optimize.UglifyJsPlugin({
-            compressor: {
-                warnings: false,
-                screw_ie8: true
-            }
-        }),
+//        new webpack.optimize.UglifyJsPlugin({
+//            compressor: {
+//                warnings: false,
+//                screw_ie8: true
+//            }
+//        }),
         // creates a stats.json
         new StatsPlugin('webpack.stats.json', {
             source: false,
