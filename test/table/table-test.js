@@ -16,6 +16,13 @@ describe('Table', () => {
         expect(t.placed()).toEqual(true);
     });
 
+    it('should be able to update the facing direction', () => {
+        const t = new Table();
+        t.place(0, 1, RobotModel.FACES.NORTH);
+        t.facing = RobotModel.FACES.EAST;
+        expect(t.facing).toEqual(RobotModel.FACES.EAST);
+    });
+
     it('should be able to output current state', () => {
         const t = new Table();
         t.place(0, 1, RobotModel.FACES.NORTH);

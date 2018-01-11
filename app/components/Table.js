@@ -27,7 +27,7 @@ class Table {
     move() {
         const x = this.getX();
         const y = this.getY();
-        const facing = this.getFacing();
+        const facing = this.facing;
         const area = [...this.area];
         let newX = x;
         let newY = y;
@@ -69,7 +69,7 @@ class Table {
     report() {
         const x = this.getX();
         const y = this.getY();
-        const facing = this.getFacing();
+        const facing = this.facing;
         return `${this.invertCoordinate(x)}, ${this.invertCoordinate(y)}, ${facing}`;
     }
 
@@ -81,10 +81,16 @@ class Table {
         return this.area[this.getY()].findIndex(cell => cell !== 0);
     }
 
-    getFacing() {
+    get facing() {
         const x = this.getX();
         const y = this.getY();
         return this.area[y][x];
+    }
+
+    set facing(value) {
+        const x = this.getX();
+        const y = this.getY();
+        this.area[y][x] = value;
     }
 
     invertCoordinate(value) {
