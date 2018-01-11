@@ -37,7 +37,8 @@ describe('Table', () => {
     });
 
     it('should reverse the cartesian coordinates', () => {
-        const t = new Table();
+        let t;
+        t = new Table();
         t.place(0, 0, Robot.FACES.NORTH);
         expect(t.area).toEqual([
             [0, 0, 0, 0, 0],
@@ -45,6 +46,15 @@ describe('Table', () => {
             [0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0],
             [0, 0, 0, 0, Robot.FACES.NORTH]
+        ]);
+        t = new Table();
+        t.place(4, 4, Robot.FACES.EAST);
+        expect(t.area).toEqual([
+            [Robot.FACES.EAST, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0]
         ]);
     });
     
