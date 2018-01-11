@@ -9,7 +9,7 @@ class TableModel {
     ];
 
     static tableFactory() {
-        return Array.from(TableModel.table);
+        return JSON.parse(JSON.stringify(TableModel.table));
     }
 }
 
