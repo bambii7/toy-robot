@@ -1,10 +1,17 @@
 # Toy Robot
 
-`npm install`
-`npm run build`
 
-For a single run
+To set up run (provided you have npm installed prior)
+```npm install
+npm run build
+npm start```
+
+Then visit `http://localhost:3000/`
+
+For a single test run
+
 `npm test`
 
-To inspect test output
+For continuious testing
+
 `karma start --auto-watch`
