@@ -1,3 +1,4 @@
+import Robot from './Robot';
 
 class Table {
     constructor() {
@@ -23,6 +24,27 @@ class Table {
         return this.area.some(row => row.some(item => item !== 0));
     }
 
+    move() {
+        const x = this.getX();
+        const y = this.getY();
+        const facing = this.getFacing();
+        const area = [...this.area];
+        let newX;
+        let newY;
+
+        switch(facing) {
+            case Robot.FACES.NORTH:
+                newX = x;
+                newY = y - 1;
+                area[newY][newX] = facing;
+                break;
+            default:
+                console.log('NORTH');
+        }
+        area[y][x] = 0;
+        return area;
+    }
+
     checkCollision(x, y) {
         const validY = this.area[y] === undefined ? false : true;
         let validX = false;
@@ -35,7 +57,7 @@ class Table {
     report() {
         const x = this.getX();
         const y = this.getY();
-        const facing = this.area[y][x];
+        const facing = this.getFacing();
         return `${this.invertCoordinate(x)}, ${this.invertCoordinate(y)}, ${facing}`;
     }
 
@@ -45,6 +67,12 @@ class Table {
 
     getX() {
         return this.area[this.getY()].findIndex(cell => cell !== 0);
+    }
+
+    getFacing() {
+        const x = this.getX();
+        const y = this.getY();
+        return this.area[y][x];
     }
 
     invertCoordinate(value) {

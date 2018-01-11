@@ -58,4 +58,15 @@ describe('Table', () => {
         ]);
     });
     
+    it('should move the player UP if facing NORTH', () => {
+        const t = new Table();
+        t.place(0, 0, Robot.FACES.NORTH);
+        expect(t.move()).toEqual([
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, Robot.FACES.NORTH],
+            [0, 0, 0, 0, 0]
+        ]);
+    });
 });
