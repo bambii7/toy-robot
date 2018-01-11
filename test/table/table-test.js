@@ -12,7 +12,7 @@ describe('Table', () => {
   
     it('should be able to place a robot on the table', () => {
         const t = new Table();
-        t.place(0, 1, 'N');
+        t.place(0, 1, Robot.FACES.NORTH);
         expect(t.placed()).toEqual(true);
     })
 });

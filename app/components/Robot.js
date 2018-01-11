@@ -6,4 +6,11 @@ class Robot extends React.Component {
     }
 }
 
+Robot.FACES = {
+    NORTH: 'NORTH',
+    EAST: 'EAST',
+    SOUTH: 'SOUTH',
+    WEST: 'WEST'
+};
+
 export default Robot;
