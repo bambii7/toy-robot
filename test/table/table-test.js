@@ -27,4 +27,12 @@ describe('Table', () => {
         const invalidPlacement = () => { t.place(0, -1, Robot.FACES.NORTH) };
         expect(invalidPlacement).toThrow(new Error('Invalid Placement'));
     });
+  
+    it('should validate if a position is posible', () => {
+        const t = new Table();
+        expect(t.checkCollision(-1, 0)).toEqual(false);
+        expect(t.checkCollision(1, 1)).toEqual(true);
+        expect(t.checkCollision(0, -1)).toEqual(false);
+        expect(t.checkCollision(4, 4)).toEqual(true);
+    })
 });

@@ -11,7 +11,7 @@ class Table {
     }
 
     place(x, y, f) {
-        if (this.area[x][y] === undefined) {
+        if (!this.checkCollision(x, y)) {
             throw new Error('Invalid Placement');
         }
         this.area[x][y] = f;
@@ -19,6 +19,15 @@ class Table {
 
     placed() {
         return this.area.some(row => row.some(item => item !== 0));
+    }
+
+    checkCollision(x, y) {
+        const validX = this.area[x] === undefined ? false : true;
+        let validY = false;
+        if (validX) {
+            validY = this.area[x][y] === undefined ? false : true;
+        }
+        return validX && validY;
     }
 
     report() {
