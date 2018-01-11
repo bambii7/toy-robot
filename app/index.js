@@ -22,4 +22,5 @@ render(
 // expose Robot
 window.Robot = Robot;
 window.Table = Table;
-// export { Robot };
+window.store = store;
+// export { Robot, Table };
