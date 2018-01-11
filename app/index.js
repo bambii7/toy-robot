@@ -4,6 +4,7 @@ import { AppContainer } from 'react-hot-loader';
 import { configureStore, history } from './store/configureStore';
 import Root from './containers/Root';
 import Robot from './components/Robot';
+import Table from './components/Table';
 
 const store = configureStore();
 
@@ -20,4 +21,5 @@ render(
 
 // expose Robot
 window.Robot = Robot;
+window.Table = Table;
 // export { Robot };
