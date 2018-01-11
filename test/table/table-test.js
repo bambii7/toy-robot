@@ -25,7 +25,7 @@ describe('Table', () => {
     it('should not be able to be placed out of bounds', () => {
         const t = new Table();
         const invalidPlacement = () => { t.place(0, -1, Robot.FACES.NORTH) };
-        expect(invalidPlacement).toThrow(new Error('Invalid Placement'));
+        expect(invalidPlacement).toThrow(new Error(Table.ERROR_TYPES.INVLAID_PLACEMENT));
     });
   
     it('should validate if a position is posible', () => {
@@ -110,6 +110,6 @@ describe('Table', () => {
         const t = new Table();
         t.place(4, 4, Robot.FACES.NORTH);
         const invalidMovement = () => { t.move() };
-        expect(invalidMovement).toThrow(new Error('Invalid Movement'));
+        expect(invalidMovement).toThrow(new Error(Table.ERROR_TYPES.INVLAID_MOVEMENT));
     });
 });

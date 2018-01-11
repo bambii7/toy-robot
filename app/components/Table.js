@@ -1,6 +1,10 @@
 import Robot from './Robot';
 
 class Table {
+    static ERROR_TYPES = {
+        INVLAID_PLACEMENT: 'Invalid Placement',
+        INVLAID_MOVEMENT: 'Invalid Movement'
+    };
     constructor() {
         this.area = [
             [0, 0, 0, 0, 0],
@@ -15,7 +19,7 @@ class Table {
         const xCoordinate = this.invertCoordinate(x);
         const yCoordinate = this.invertCoordinate(y);
         if (!this.checkCollision(xCoordinate, yCoordinate)) {
-            throw new Error('Invalid Placement');
+            throw new Error(Table.ERROR_TYPES.INVLAID_PLACEMENT);
         }
         this.area[yCoordinate][xCoordinate] = f;
     }
@@ -50,7 +54,7 @@ class Table {
                 newY = y - 1;
         }
         if (!this.checkCollision(newX, newY)) {
-            throw new Error('Invalid Movement');
+            throw new Error(Table.ERROR_TYPES.INVLAID_MOVEMENT);
         }
         area[newY][newX] = facing;
         area[y][x] = 0;
