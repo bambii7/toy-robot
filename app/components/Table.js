@@ -1,27 +1,23 @@
 import Robot from './Robot';
+import TableModel from '../models/TableModel';
 
 class Table {
     static ERROR_TYPES = {
-        INVLAID_PLACEMENT: 'Invalid Placement',
-        INVLAID_MOVEMENT: 'Invalid Movement'
+        INVLAID_PLACEMENT: 'Beep Boop!',
+        INVLAID_MOVEMENT: 'Beep Beep Booop!'
     };
-    constructor() {
-        this.area = [
-            [0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0]
-        ];
+
+    constructor(table = TableModel.tableFactory()) {
+        this.area = table;
     }
 
-    place(x, y, f) {
+    place(x, y, facing) {
         const xCoordinate = this.invertCoordinate(x);
         const yCoordinate = this.invertCoordinate(y);
         if (!this.checkCollision(xCoordinate, yCoordinate)) {
             throw new Error(Table.ERROR_TYPES.INVLAID_PLACEMENT);
         }
-        this.area[yCoordinate][xCoordinate] = f;
+        this.area[yCoordinate][xCoordinate] = facing;
     }
 
     placed() {
