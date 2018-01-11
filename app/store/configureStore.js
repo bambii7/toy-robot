@@ -6,14 +6,11 @@ import DevTools from '../containers/DevTools';
 
 export const history = createHistory();
 const middleware = routerMiddleware(history);
-
-export function configureStore(initialState) {
-    return createStore(
-        rootReducer,
-        initialState,
-        compose(
-            applyMiddleware(middleware),
-            DevTools.instrument()
-        )
-    );
-}
+export const store = createStore(
+    rootReducer,
+    {},
+    compose(
+        applyMiddleware(middleware),
+        DevTools.instrument()
+    )
+);
