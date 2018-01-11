@@ -26,7 +26,7 @@ const toyRobot = (state = TableModel.tableFactory(), action) => {
         case types.RIGHT:
             return null;
         case types.MOVE:
-            return null;
+            return table.move();
         case types.REPORT:
             return null;
         default:

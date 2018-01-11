@@ -22,4 +22,17 @@ describe('App State Reducer', () => {
             [0, 0, 0, 0, 0]
         ]);
     });
+
+    it('should move robot up facing north and move command is called', () => {
+        PLACE(1, 2, Robot.FACES.NORTH);
+        MOVE();
+        const state = store.getState();
+        expect(state.toyRobot).toEqual([
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, Robot.FACES.NORTH, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0]
+        ]);
+    });
 });

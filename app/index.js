@@ -8,6 +8,7 @@ import Table from './components/Table';
 import TableModel from './models/TableModel';
 
 import PLACE from './actions/place';
+import MOVE from './actions/MOVE';
 
 const div = document.createElement('div');
 div.setAttribute('id', 'root');
@@ -26,4 +27,6 @@ window.Table = Table;
 window.TableModel = TableModel;
 window.store = store;
 window.PLACE = PLACE;
+window.MOVE = MOVE;
 // export { Robot, Table, TableModel, store };
+
