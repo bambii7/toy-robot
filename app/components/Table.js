@@ -11,6 +11,9 @@ class Table {
     }
 
     place(x, y, f) {
+        if (this.area[x][y] === undefined) {
+            throw new Error('Invalid Placement');
+        }
         this.area[x][y] = f;
     }
 

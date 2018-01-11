@@ -21,4 +21,10 @@ describe('Table', () => {
         t.place(0, 1, Robot.FACES.NORTH);
         expect(t.report()).toEqual(`0, 1, ${Robot.FACES.NORTH}`);
     });
+  
+    it('should not be able to be placed out of bounds', () => {
+        const t = new Table();
+        const invalidPlacement = () => { t.place(0, -1, Robot.FACES.NORTH) };
+        expect(invalidPlacement).toThrow(new Error('Invalid Placement'));
+    });
 });
