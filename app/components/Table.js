@@ -10,6 +10,10 @@ class Table {
         ];
     }
 
+    place(x, y, f) {
+        this.area[x][y] = f;
+    }
+
     placed() {
         return this.area.some(row => row.some(item => item !== 0));
     }
