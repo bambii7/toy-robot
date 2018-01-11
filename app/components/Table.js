@@ -29,18 +29,27 @@ class Table {
         const y = this.getY();
         const facing = this.getFacing();
         const area = [...this.area];
-        let newX;
-        let newY;
+        let newX = x;
+        let newY = y;
 
         switch(facing) {
             case Robot.FACES.NORTH:
-                newX = x;
                 newY = y - 1;
-                area[newY][newX] = facing;
+                break;
+            case Robot.FACES.EAST:
+                newX = x + 1;
+                break;
+            case Robot.FACES.SOUTH:
+                newY = y + 1;
+                break;
+            case Robot.FACES.WEST:
+                newX = x - 1;
                 break;
             default:
-                console.log('NORTH');
+                // NORTH
+                newY = y - 1;
         }
+        area[newY][newX] = facing;
         area[y][x] = 0;
         return area;
     }

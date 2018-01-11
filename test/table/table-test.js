@@ -57,7 +57,7 @@ describe('Table', () => {
             [0, 0, 0, 0, 0]
         ]);
     });
-    
+
     it('should move the player UP if facing NORTH', () => {
         const t = new Table();
         t.place(0, 0, Robot.FACES.NORTH);
@@ -66,6 +66,42 @@ describe('Table', () => {
             [0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0],
             [0, 0, 0, 0, Robot.FACES.NORTH],
+            [0, 0, 0, 0, 0]
+        ]);
+    });
+
+    it('should move the player RIGHT if facing EAST', () => {
+        const t = new Table();
+        t.place(1, 0, Robot.FACES.EAST);
+        expect(t.move()).toEqual([
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, Robot.FACES.EAST]
+        ]);
+    });
+
+    it('should move the player DOWN if facing SOUTH', () => {
+        const t = new Table();
+        t.place(4, 4, Robot.FACES.SOUTH);
+        expect(t.move()).toEqual([
+            [0, 0, 0, 0, 0],
+            [Robot.FACES.SOUTH, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0]
+        ]);
+    });
+
+    it('should move the player LEFT if facing WEST', () => {
+        const t = new Table();
+        t.place(3, 4, Robot.FACES.WEST);
+        expect(t.move()).toEqual([
+            [Robot.FACES.WEST, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0]
         ]);
     });
