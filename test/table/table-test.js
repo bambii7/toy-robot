@@ -4,4 +4,9 @@ describe('Table', () => {
         const t = new Table();
         expect(t).toEqual(jasmine.any(Table));
     });
+  
+    it('should return false if no reobot is placed', () => {
+        const t = new Table();
+        expect(t.placed()).toEqual(false);
+    })
 });
