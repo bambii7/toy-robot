@@ -5,6 +5,7 @@ import { configureStore, history } from './store/configureStore';
 import Root from './containers/Root';
 import Robot from './components/Robot';
 import Table from './components/Table';
+import TableModel from './models/TableModel';
 
 const store = configureStore();
 
@@ -22,5 +23,6 @@ render(
 // expose Robot
 window.Robot = Robot;
 window.Table = Table;
+window.TableModel = TableModel;
 window.store = store;
-// export { Robot, Table };
+// export { Robot, Table, TableModel, store };

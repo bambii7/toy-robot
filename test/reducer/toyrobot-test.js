@@ -5,4 +5,9 @@ describe('App State Reducer', () => {
         expect(state).toEqual(jasmine.any(Object));
         expect(state.toyRobot).toEqual(jasmine.any(Array));
     });
+
+    it('should default to 5x5 array', () => {
+        const state = store.getState();
+        expect(state.toyRobot).toEqual(TableModel.tableFactory());
+    });
 });
