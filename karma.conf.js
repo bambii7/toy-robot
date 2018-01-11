@@ -17,6 +17,8 @@ module.exports = function(config) {
             'test/**/*-test.js'
         ],
 
+//        customContextFile: 'dist/index.html',
+
 
         // list of files to exclude
         exclude: [

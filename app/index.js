@@ -3,8 +3,13 @@ import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { configureStore, history } from './store/configureStore';
 import Root from './containers/Root';
+import Robot from './components/Robot';
 
 const store = configureStore();
+
+const div = document.createElement('div');
+div.setAttribute('id', 'root');
+document.body.appendChild(div);
 
 render(
     <AppContainer>
@@ -13,3 +18,6 @@ render(
     document.getElementById('root')
 );
 
+// expose Robot
+window.Robot = Robot;
+// export { Robot };
