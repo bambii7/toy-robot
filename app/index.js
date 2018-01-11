@@ -3,12 +3,15 @@ import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { store, history } from './store/configureStore';
 import Root from './containers/Root';
-import Robot from './components/Robot';
+import RobotModel from './models/RobotModel';
+import RobotController from './controllers/RobotController';
 import Table from './components/Table';
 import TableModel from './models/TableModel';
 
 import PLACE from './actions/place';
 import MOVE from './actions/MOVE';
+import LEFT from './actions/LEFT';
+import RIGHT from './actions/RIGHT';
 
 const div = document.createElement('div');
 div.setAttribute('id', 'root');
@@ -22,11 +25,14 @@ render(
 );
 
 // expose Robot
-window.Robot = Robot;
+window.RobotModel = RobotModel;
+window.RobotController = RobotController;
 window.Table = Table;
 window.TableModel = TableModel;
 window.store = store;
 window.PLACE = PLACE;
 window.MOVE = MOVE;
+window.LEFT = LEFT;
+window.RIGHT = RIGHT;
 // export { Robot, Table, TableModel, store };
 

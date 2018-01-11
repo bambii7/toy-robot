@@ -1,4 +1,4 @@
-import Robot from './Robot';
+import RobotModel from '../models/RobotModel';
 import TableModel from '../models/TableModel';
 
 class Table {
@@ -33,16 +33,16 @@ class Table {
         let newY = y;
 
         switch(facing) {
-            case Robot.FACES.NORTH:
+            case RobotModel.FACES.NORTH:
                 newY = y - 1;
                 break;
-            case Robot.FACES.EAST:
+            case RobotModel.FACES.EAST:
                 newX = x + 1;
                 break;
-            case Robot.FACES.SOUTH:
+            case RobotModel.FACES.SOUTH:
                 newY = y + 1;
                 break;
-            case Robot.FACES.WEST:
+            case RobotModel.FACES.WEST:
                 newX = x - 1;
                 break;
             default:

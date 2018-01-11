@@ -12,24 +12,24 @@ describe('App State Reducer', () => {
     });
 
     it('should update state when PLACE command is called', () => {
-        PLACE(1, 2, Robot.FACES.NORTH);
+        PLACE(1, 2, RobotModel.FACES.NORTH);
         const state = store.getState();
         expect(state.toyRobot).toEqual([
             [0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0],
-            [0, 0, 0, Robot.FACES.NORTH, 0],
+            [0, 0, 0, RobotModel.FACES.NORTH, 0],
             [0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0]
         ]);
     });
 
     it('should move robot up facing north and move command is called', () => {
-        PLACE(1, 2, Robot.FACES.NORTH);
+        PLACE(1, 2, RobotModel.FACES.NORTH);
         MOVE();
         const state = store.getState();
         expect(state.toyRobot).toEqual([
             [0, 0, 0, 0, 0],
-            [0, 0, 0, Robot.FACES.NORTH, 0],
+            [0, 0, 0, RobotModel.FACES.NORTH, 0],
             [0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0]
