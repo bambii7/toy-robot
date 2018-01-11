@@ -1,5 +1,6 @@
 import { routerReducer as routing } from 'react-router-redux';
 import { combineReducers } from 'redux';
+import TableModel from '../models/TableModel';
 import * as types from '../actions/types';
 
 
@@ -11,8 +12,8 @@ import * as types from '../actions/types';
 //          0, 0, 0, 0, 0
 //      ];
 
-const toyRobot = (state = [], action) => {
-    const newState = [...state];
+const toyRobot = (state = TableModel.tableFactory(), action) => {
+    const newState = Array.from(state);
     switch (action.type) {
         case types.PLACE:
             return null;
