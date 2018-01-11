@@ -10,4 +10,16 @@ describe('App State Reducer', () => {
         const state = store.getState();
         expect(state.toyRobot).toEqual(TableModel.tableFactory());
     });
+
+    it('should update state when PLACE command is called', () => {
+        PLACE(1, 2, Robot.FACES.NORTH);
+        const state = store.getState();
+        expect(state.toyRobot).toEqual([
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, Robot.FACES.NORTH, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0]
+        ]);
+    });
 });
