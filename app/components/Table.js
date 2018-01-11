@@ -49,6 +49,9 @@ class Table {
                 // NORTH
                 newY = y - 1;
         }
+        if (!this.checkCollision(newX, newY)) {
+            throw new Error('Invalid Movement');
+        }
         area[newY][newX] = facing;
         area[y][x] = 0;
         return area;

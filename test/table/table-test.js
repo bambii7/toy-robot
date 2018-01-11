@@ -105,4 +105,11 @@ describe('Table', () => {
             [0, 0, 0, 0, 0]
         ]);
     });
+
+    it('should throw error for invalid movements off table', () => {
+        const t = new Table();
+        t.place(4, 4, Robot.FACES.NORTH);
+        const invalidMovement = () => { t.move() };
+        expect(invalidMovement).toThrow(new Error('Invalid Movement'));
+    });
 });
