@@ -34,5 +34,18 @@ describe('Table', () => {
         expect(t.checkCollision(1, 1)).toEqual(true);
         expect(t.checkCollision(0, -1)).toEqual(false);
         expect(t.checkCollision(4, 4)).toEqual(true);
-    })
+    });
+
+    it('should reverse the cartesian coordinates', () => {
+        const t = new Table();
+        t.place(0, 0, Robot.FACES.NORTH);
+        expect(t.area).toEqual([
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, Robot.FACES.NORTH]
+        ]);
+    });
+    
 });

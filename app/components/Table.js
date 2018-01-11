@@ -11,10 +11,12 @@ class Table {
     }
 
     place(x, y, f) {
-        if (!this.checkCollision(x, y)) {
+        const xCoordinate = this.invertCoordinate(x);
+        const yCoordinate = this.invertCoordinate(y);
+        if (!this.checkCollision(xCoordinate, yCoordinate)) {
             throw new Error('Invalid Placement');
         }
-        this.area[x][y] = f;
+        this.area[yCoordinate][xCoordinate] = f;
     }
 
     placed() {
@@ -22,10 +24,10 @@ class Table {
     }
 
     checkCollision(x, y) {
-        const validX = this.area[x] === undefined ? false : true;
-        let validY = false;
-        if (validX) {
-            validY = this.area[x][y] === undefined ? false : true;
+        const validY = this.area[y] === undefined ? false : true;
+        let validX = false;
+        if (validY) {
+            validX = this.area[y][x] === undefined ? false : true;
         }
         return validX && validY;
     }
@@ -33,16 +35,20 @@ class Table {
     report() {
         const x = this.getX();
         const y = this.getY();
-        const facing = this.area[x][y];
-        return `${x}, ${y}, ${facing}`;
-    }
-
-    getX() {
-        return this.area.findIndex(row => row !== [0, 0, 0, 0, 0]);
+        const facing = this.area[y][x];
+        return `${this.invertCoordinate(x)}, ${this.invertCoordinate(y)}, ${facing}`;
     }
 
     getY() {
-        return this.area[this.getX()].findIndex(cell => cell !== 0);
+        return this.area.findIndex(row => row.filter(i => i !== 0).length !== 0);
+    }
+
+    getX() {
+        return this.area[this.getY()].findIndex(cell => cell !== 0);
+    }
+
+    invertCoordinate(value) {
+        return (this.area.length - 1) - value;
     }
 }
 
