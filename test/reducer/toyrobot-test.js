@@ -4,8 +4,8 @@ describe('App State Reducer', () => {
     it('should throw an invalid move error if not placed when turning', () => {
         const invalidMovementRight = () => { RIGHT(); };
         const invalidMovementLeft = () => { LEFT(); };
-        expect(invalidMovementRight).toThrow(new Error(Table.ERROR_TYPES.INVLAID_PLACEMENT));
-        expect(invalidMovementLeft).toThrow(new Error(Table.ERROR_TYPES.INVLAID_PLACEMENT));
+        expect(invalidMovementRight).toThrow(new Error(TableController.ERROR_TYPES.INVLAID_PLACEMENT));
+        expect(invalidMovementLeft).toThrow(new Error(TableController.ERROR_TYPES.INVLAID_PLACEMENT));
     });
   
     it('should default to array', () => {

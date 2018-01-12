@@ -5,7 +5,7 @@ import { store, history } from './store/configureStore';
 import Root from './containers/Root';
 import RobotModel from './models/RobotModel';
 import RobotController from './controllers/RobotController';
-import Table from './components/Table';
+import TableController from './controllers/TableController';
 import TableModel from './models/TableModel';
 
 import PLACE from './actions/place';
@@ -27,7 +27,7 @@ render(
 // expose Robot
 window.RobotModel = RobotModel;
 window.RobotController = RobotController;
-window.Table = Table;
+window.TableController = TableController;
 window.TableModel = TableModel;
 window.store = store;
 window.PLACE = PLACE;
@@ -36,7 +36,7 @@ window.LEFT = LEFT;
 window.RIGHT = RIGHT;
 window.REPORT = () => {
     const state = store.getState().toyRobot;
-    const table = new Table(state);
+    const table = new TableController(state);
     console.log(table.report());
     console.table(state);
 };

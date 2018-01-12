@@ -1,8 +1,8 @@
 import { routerReducer as routing } from 'react-router-redux';
 import { combineReducers } from 'redux';
-import Table from '../components/Table';
 import TableModel from '../models/TableModel';
 import RobotController from '../controllers/RobotController';
+import TableController from '../controllers/TableController';
 import * as types from '../actions/types';
 
 
@@ -15,7 +15,7 @@ import * as types from '../actions/types';
 //      ];
 
 const toyRobot = (state = TableModel.tableFactory(), action) => {
-    const table = new Table(state);
+    const table = new TableController(state);
     let robot;
 
     switch (action.type) {
@@ -24,7 +24,7 @@ const toyRobot = (state = TableModel.tableFactory(), action) => {
             return table.area;
         case types.LEFT:
             if (!table.placed()) {
-                throw new Error(Table.ERROR_TYPES.INVLAID_PLACEMENT);
+                throw new Error(TableController.ERROR_TYPES.INVLAID_PLACEMENT);
             }
             robot = new RobotController(table.faceing);
             robot.left();
@@ -32,7 +32,7 @@ const toyRobot = (state = TableModel.tableFactory(), action) => {
             return table.area;
         case types.RIGHT:
             if (!table.placed()) {
-                throw new Error(Table.ERROR_TYPES.INVLAID_PLACEMENT);
+                throw new Error(TableController.ERROR_TYPES.INVLAID_PLACEMENT);
             }
             robot = new RobotController(table.faceing);
             robot.right();
