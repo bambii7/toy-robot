@@ -29,4 +29,4 @@ For a single test run
 
 For continuious testing
 
-`karma start --auto-watch`
+`./node_modules/karma/bin/karma start --single-run`
