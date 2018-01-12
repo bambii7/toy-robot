@@ -16,21 +16,30 @@ import * as types from '../actions/types';
 
 const toyRobot = (state = TableModel.tableFactory(), action) => {
     const table = new Table(state);
-    const robot = new RobotController();
+    let robot;
 
     switch (action.type) {
         case types.PLACE:
             table.place(action.x, action.y, action.facing);
             return table.area;
         case types.LEFT:
-            robot.facing = table.facing;
+            if (!table.placed()) {
+                throw new Error(Table.ERROR_TYPES.INVLAID_PLACEMENT);
+            }
+            robot = new RobotController(table.faceing);
+            robot.left();
+            table.facing = robot.facing;
             return table.area;
         case types.RIGHT:
+            if (!table.placed()) {
+                throw new Error(Table.ERROR_TYPES.INVLAID_PLACEMENT);
+            }
+            robot = new RobotController(table.faceing);
+            robot.right();
+            table.facing = robot.facing;
             return table.area;
         case types.MOVE:
             return table.move();
-        case types.REPORT:
-            return null;
         default:
             return table.area;
     }

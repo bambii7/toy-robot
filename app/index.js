@@ -34,5 +34,23 @@ window.PLACE = PLACE;
 window.MOVE = MOVE;
 window.LEFT = LEFT;
 window.RIGHT = RIGHT;
-// export { Robot, Table, TableModel, store };
+window.REPORT = () => {
+    const state = store.getState().toyRobot;
+    const table = new Table(state);
+    console.log(table.report());
+    console.table(state);
+};
+// export { Robot, Table, TableModel, store, PLACE, MOVE, LEFT, RIGHT, REPORT };
 
+
+//  PLACE(0, 0, RobotModel.FACES.NORTH);
+//  MOVE();
+//  RIGHT();
+//  LEFT();
+//  LEFT();
+//  MOVE();
+//  MOVE();
+//  MOVE();
+//  MOVE();
+//  MOVE();
+//  MOVE();

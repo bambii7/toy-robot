@@ -14,6 +14,7 @@ class Table {
     place(x, y, facing) {
         const xCoordinate = this.invertCoordinate(x);
         const yCoordinate = this.invertCoordinate(y);
+        this.area = TableModel.tableFactory();
         if (!this.checkCollision(xCoordinate, yCoordinate)) {
             throw new Error(Table.ERROR_TYPES.INVLAID_PLACEMENT);
         }
@@ -74,14 +75,24 @@ class Table {
     }
 
     getY() {
+        if (!this.placed()) {
+            return 0;
+        }
         return this.area.findIndex(row => row.filter(i => i !== 0).length !== 0);
     }
 
     getX() {
-        return this.area[this.getY()].findIndex(cell => cell !== 0);
+        if (!this.placed()) {
+            return 0;
+        }
+        const y = this.getY();
+        return this.area[y].findIndex(cell => cell !== 0);
     }
 
     get facing() {
+        if (!this.placed()) {
+            return null;
+        }
         const x = this.getX();
         const y = this.getY();
         return this.area[y][x];
