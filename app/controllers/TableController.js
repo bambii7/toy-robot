@@ -1,7 +1,7 @@
 import RobotModel from '../models/RobotModel';
 import TableModel from '../models/TableModel';
 
-class Table {
+class TableController {
     static ERROR_TYPES = {
         INVLAID_PLACEMENT: 'Beep Boop!',
         INVLAID_MOVEMENT: 'Beep Beep Booop!'
@@ -16,7 +16,7 @@ class Table {
         const yCoordinate = this.invertCoordinate(y);
         this.area = TableModel.tableFactory();
         if (!this.checkCollision(xCoordinate, yCoordinate)) {
-            throw new Error(Table.ERROR_TYPES.INVLAID_PLACEMENT);
+            throw new Error(TableController.ERROR_TYPES.INVLAID_PLACEMENT);
         }
         this.area[yCoordinate][xCoordinate] = facing;
     }
@@ -51,7 +51,7 @@ class Table {
                 newY = y - 1;
         }
         if (!this.checkCollision(newX, newY)) {
-            throw new Error(Table.ERROR_TYPES.INVLAID_MOVEMENT);
+            throw new Error(TableController.ERROR_TYPES.INVLAID_MOVEMENT);
         }
         area[newY][newX] = facing;
         area[y][x] = 0;
@@ -109,4 +109,4 @@ class Table {
     }
 }
 
-export default Table;
+export default TableController;
